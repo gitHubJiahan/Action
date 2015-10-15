@@ -20,4 +20,5 @@
         completions."
     </string>
     <string name="title_activity_add_thing">AddThingActivity</string>
+    <string name="title_activity_add_book">AddBookActivity</string>
 </resources>
