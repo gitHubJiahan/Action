@@ -38,19 +38,7 @@ public class MyClass {
         customerToOrders.orderAsc(orderDate);
     }
 
-    private static void addThings(Schema schema)
-    {
-        Entity thing = schema.addEntity("Thing");
-        thing.addIdProperty();
-        thing.addStringProperty("name").notNull();      //
-        thing.addStringProperty("type");
-        thing.addStringProperty("time");
-        thing.addStringProperty("place");
-        thing.addStringProperty("rank");
-        thing.addStringProperty("notifice");
 
-
-    }
 
     private static void addBook(Schema schema)
     {
