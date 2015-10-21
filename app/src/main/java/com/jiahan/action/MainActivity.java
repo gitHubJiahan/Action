@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.jiahan.action.Activity.AddBookActivity;
 import com.jiahan.action.Activity.AddThingActivity;
 import com.jiahan.action.Activity.LoginActivity;
 
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_slideshow) {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            Intent intent = new Intent(MainActivity.this, AddBookActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_manage) {
           Intent intent  = new Intent(MainActivity.this, AddThingActivity.class);

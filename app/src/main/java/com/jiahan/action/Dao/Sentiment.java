@@ -9,7 +9,7 @@ public class Sentiment {
     private Long id;
     private String words;
     private String time;
-    private Integer booId;
+    private Long book_id;
 
     public Sentiment() {
     }
@@ -18,11 +18,11 @@ public class Sentiment {
         this.id = id;
     }
 
-    public Sentiment(Long id, String words, String time, Integer booId) {
+    public Sentiment(Long id, String words, String time, Long book_id) {
         this.id = id;
         this.words = words;
         this.time = time;
-        this.booId = booId;
+        this.book_id = book_id;
     }
 
     public Long getId() {
@@ -49,12 +49,12 @@ public class Sentiment {
         this.time = time;
     }
 
-    public Integer getBooId() {
-        return booId;
+    public Long getBook_id() {
+        return book_id;
     }
 
-    public void setBooId(Integer booId) {
-        this.booId = booId;
+    public void setBook_id(Long book_id) {
+        this.book_id = book_id;
     }
 
 }

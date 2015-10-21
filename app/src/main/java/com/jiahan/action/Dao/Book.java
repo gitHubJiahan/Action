@@ -9,15 +9,15 @@ public class Book {
     private Long id;
     /** Not-null value. */
     private String bookName;
-    private String addTime;
-    private String introduction;
-    private String beginTime;
-    private String endTime;
-    private String plan;
-    private String summary;
-    private Integer readProgress;
     private String author;
-    private String tag;
+    private String language;
+    private String introduction;
+    private String addTime;
+    private Integer type;
+    private String plane;
+    private Integer readProgress;
+    private Integer tag;
+    private String finish;
 
     public Book() {
     }
@@ -26,18 +26,18 @@ public class Book {
         this.id = id;
     }
 
-    public Book(Long id, String bookName, String addTime, String introduction, String beginTime, String endTime, String plan, String summary, Integer readProgress, String author, String tag) {
+    public Book(Long id, String bookName, String author, String language, String introduction, String addTime, Integer type, String plane, Integer readProgress, Integer tag, String finish) {
         this.id = id;
         this.bookName = bookName;
-        this.addTime = addTime;
-        this.introduction = introduction;
-        this.beginTime = beginTime;
-        this.endTime = endTime;
-        this.plan = plan;
-        this.summary = summary;
-        this.readProgress = readProgress;
         this.author = author;
+        this.language = language;
+        this.introduction = introduction;
+        this.addTime = addTime;
+        this.type = type;
+        this.plane = plane;
+        this.readProgress = readProgress;
         this.tag = tag;
+        this.finish = finish;
     }
 
     public Long getId() {
@@ -58,12 +58,20 @@ public class Book {
         this.bookName = bookName;
     }
 
-    public String getAddTime() {
-        return addTime;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAddTime(String addTime) {
-        this.addTime = addTime;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     public String getIntroduction() {
@@ -74,36 +82,28 @@ public class Book {
         this.introduction = introduction;
     }
 
-    public String getBeginTime() {
-        return beginTime;
+    public String getAddTime() {
+        return addTime;
     }
 
-    public void setBeginTime(String beginTime) {
-        this.beginTime = beginTime;
+    public void setAddTime(String addTime) {
+        this.addTime = addTime;
     }
 
-    public String getEndTime() {
-        return endTime;
+    public Integer getType() {
+        return type;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    public void setType(Integer type) {
+        this.type = type;
     }
 
-    public String getPlan() {
-        return plan;
+    public String getPlane() {
+        return plane;
     }
 
-    public void setPlan(String plan) {
-        this.plan = plan;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public void setPlane(String plane) {
+        this.plane = plane;
     }
 
     public Integer getReadProgress() {
@@ -114,20 +114,20 @@ public class Book {
         this.readProgress = readProgress;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getTag() {
+    public Integer getTag() {
         return tag;
     }
 
-    public void setTag(String tag) {
+    public void setTag(Integer tag) {
         this.tag = tag;
+    }
+
+    public String getFinish() {
+        return finish;
+    }
+
+    public void setFinish(String finish) {
+        this.finish = finish;
     }
 
 }

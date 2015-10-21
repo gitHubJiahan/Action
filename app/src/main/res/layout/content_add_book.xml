@@ -25,7 +25,7 @@
                 <EditText android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_password"
+                    android:hint="Name"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
@@ -41,7 +41,7 @@
                 <EditText android:id="@+id/ths"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_password"
+                    android:hint="Author"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
@@ -49,6 +49,8 @@
                     android:maxLines="1"
                     android:singleLine="true" />
             </android.support.design.widget.TextInputLayout>
+
+
 
 
             <android.support.design.widget.TextInputLayout
@@ -57,14 +59,17 @@
                 <EditText android:id="@+id/place"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Place"
+                    android:hint="Introduction"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:inputType="text"
-                    android:maxLines="1"
+                    android:maxLines="10"
                     android:singleLine="true" />
             </android.support.design.widget.TextInputLayout>
+
+
+
 
 
             <android.support.design.widget.TextInputLayout
@@ -73,7 +78,7 @@
                 <EditText android:id="@+id/time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Time"
+                    android:hint="Plan"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
@@ -103,10 +108,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/action_sign_in"
+                android:text="ADD YOUR BOOK"
                 android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
+
 
 
 </RelativeLayout>

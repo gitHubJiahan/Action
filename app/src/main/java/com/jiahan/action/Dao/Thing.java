@@ -14,6 +14,9 @@ public class Thing {
     private String place;
     private String rank;
     private String notification;
+    private Integer tag;
+    private String summary;
+    private String plan;
 
     public Thing() {
     }
@@ -22,7 +25,7 @@ public class Thing {
         this.id = id;
     }
 
-    public Thing(Long id, String name, String type, String time, String place, String rank, String notification) {
+    public Thing(Long id, String name, String type, String time, String place, String rank, String notification, Integer tag, String summary, String plan) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -30,6 +33,9 @@ public class Thing {
         this.place = place;
         this.rank = rank;
         this.notification = notification;
+        this.tag = tag;
+        this.summary = summary;
+        this.plan = plan;
     }
 
     public Long getId() {
@@ -88,6 +94,30 @@ public class Thing {
 
     public void setNotification(String notification) {
         this.notification = notification;
+    }
+
+    public Integer getTag() {
+        return tag;
+    }
+
+    public void setTag(Integer tag) {
+        this.tag = tag;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getPlan() {
+        return plan;
+    }
+
+    public void setPlan(String plan) {
+        this.plan = plan;
     }
 
 }

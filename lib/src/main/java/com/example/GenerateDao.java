@@ -10,14 +10,15 @@ import de.greenrobot.daogenerator.Schema;
 public class GenerateDao {
     public static void main(String arg[])throws Exception
     {
-        Schema schema = new Schema(1, "com.jiahan.action.Dao");
+        Schema schema = new Schema(2, "com.jiahan.action.Dao");
         addThings(schema);
         addBook(schema);
         addDoubt(schema);
         addExpend(schema);
         addSentiment(schema);
         addIncome(schema);
-        new DaoGenerator().generateAll(schema, "H://AndroidStdio");
+        addCoffer(schema);
+        new DaoGenerator().generateAll(schema, "F://AndroidStdio");
     }
 
 
@@ -36,6 +37,9 @@ public class GenerateDao {
         thing.addStringProperty("place");
         thing.addStringProperty("rank");
         thing.addStringProperty("notification");
+        thing.addIntProperty("tag");
+        thing.addStringProperty("summary");
+        thing.addStringProperty("plan");
 
 
     }
@@ -48,15 +52,15 @@ public class GenerateDao {
         book.setTableName("BOOK");
         book.addIdProperty();
         book.addStringProperty("bookName").notNull();
-        book.addStringProperty("addTime");
-        book.addStringProperty("introduction");
-        book.addStringProperty("beginTime");
-        book.addStringProperty("endTime");
-        book.addStringProperty("plan");
-        book.addStringProperty("summary");
-        book.addIntProperty("readProgress");
         book.addStringProperty("author");
-        book.addStringProperty("tag");
+        book.addStringProperty("language");
+        book.addStringProperty("introduction");
+        book.addStringProperty("addTime");
+        book.addIntProperty("type");
+        book.addStringProperty("plane");
+        book.addIntProperty("readProgress");
+        book.addIntProperty("tag");
+        book.addStringProperty("finish");
     }
 
     private static void addDoubt(Schema schema)
@@ -68,7 +72,8 @@ public class GenerateDao {
         doubt.addStringProperty("question");
         doubt.addStringProperty("answer");
         doubt.addStringProperty("time");
-        doubt.addIntProperty("bookId");
+        doubt.addLongProperty("boo_id");
+        doubt.addStringProperty("summary");
 
     }
 
@@ -80,7 +85,7 @@ public class GenerateDao {
         sentiment.addIdProperty();
         sentiment.addStringProperty("words");
         sentiment.addStringProperty("time");
-        sentiment.addIntProperty("booId");
+        sentiment.addLongProperty("book_id");
     }
 
 
@@ -107,6 +112,14 @@ public class GenerateDao {
         income.addDoubleProperty("amount");
         income.addIntProperty("type");
         income.addStringProperty("notification");
+
+    }
+    private static void addCoffer(Schema schema)
+    {
+        Entity coffer = schema.addEntity("Coffer");
+        coffer.setTableName("Coffer");
+        coffer.addDoubleProperty("money");
+        coffer.addIntProperty("password");
 
     }
 

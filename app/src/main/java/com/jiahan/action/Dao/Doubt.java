@@ -10,7 +10,8 @@ public class Doubt {
     private String question;
     private String answer;
     private String time;
-    private Integer bookId;
+    private Long boo_id;
+    private String summary;
 
     public Doubt() {
     }
@@ -19,12 +20,13 @@ public class Doubt {
         this.id = id;
     }
 
-    public Doubt(Long id, String question, String answer, String time, Integer bookId) {
+    public Doubt(Long id, String question, String answer, String time, Long boo_id, String summary) {
         this.id = id;
         this.question = question;
         this.answer = answer;
         this.time = time;
-        this.bookId = bookId;
+        this.boo_id = boo_id;
+        this.summary = summary;
     }
 
     public Long getId() {
@@ -59,12 +61,20 @@ public class Doubt {
         this.time = time;
     }
 
-    public Integer getBookId() {
-        return bookId;
+    public Long getBoo_id() {
+        return boo_id;
     }
 
-    public void setBookId(Integer bookId) {
-        this.bookId = bookId;
+    public void setBoo_id(Long boo_id) {
+        this.boo_id = boo_id;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
 }
