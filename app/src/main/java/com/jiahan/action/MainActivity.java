@@ -89,15 +89,15 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
+        if (id == R.id.book_name) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_tasks) {
 
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_balance) {
             Intent intent = new Intent(MainActivity.this, AddBookActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_friends) {
           Intent intent  = new Intent(MainActivity.this, AddThingActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_share) {
