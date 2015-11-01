@@ -22,4 +22,6 @@
     <string name="title_activity_add_thing">AddThingActivity</string>
     <string name="title_activity_add_book">AddBookActivity</string>
     <string name="title_activity_things_list">ThingsList</string>
+    <string name="title_activity_task">TaskActivity</string>
+    <string name="title_activity_book">BookActivity</string>
 </resources>
