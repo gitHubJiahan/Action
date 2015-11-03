@@ -9,12 +9,11 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_addbook"
     tools:context="com.jiahan.action.Activity.AddBookActivity">
-
-    <ScrollView android:id="@+id/login_form"
+    <ScrollView android:id="@+id/book_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout android:id="@+id/email_login_form"
+        <LinearLayout android:id="@+id/add_book_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -22,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <EditText android:id="@+id/password"
+                <EditText android:id="@+id/book_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Name"
@@ -38,7 +37,7 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <EditText android:id="@+id/ths"
+                <EditText android:id="@+id/book_author"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Author"
@@ -51,34 +50,13 @@
             </android.support.design.widget.TextInputLayout>
 
 
-
-
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <EditText android:id="@+id/place"
+                <EditText android:id="@+id/book_abstuct"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Introduction"
-                    android:imeActionId="@+id/login"
-                    android:imeActionLabel="@string/action_sign_in_short"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="text"
-                    android:maxLines="10"
-                    android:singleLine="true" />
-            </android.support.design.widget.TextInputLayout>
-
-
-
-
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <EditText android:id="@+id/time"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Plan"
+                    android:hint="Abstuct"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
@@ -91,7 +69,23 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <EditText android:id="@+id/notification"
+                <EditText android:id="@+id/book_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Time"
+                    android:imeActionId="@+id/login"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText android:id="@+id/book_notification"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Notification"
@@ -103,7 +97,7 @@
                     android:singleLine="true" />
             </android.support.design.widget.TextInputLayout>
 
-            <Button android:id="@+id/email_sign_in_button"
+            <Button android:id="@+id/book_add_button"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

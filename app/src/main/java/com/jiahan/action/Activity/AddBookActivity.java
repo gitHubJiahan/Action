@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.jiahan.action.Dao.Book;
 
@@ -20,6 +21,7 @@ public class AddBookActivity extends AppCompatActivity {
     private DaoMaster daoMaster;
     private DaoSession daoSession;
     private BookDao bookDao;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,16 @@ public class AddBookActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
+
+
+
+
     }
+
+    public void  initview()
+    {
+
+    }
+
 
 }
