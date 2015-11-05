@@ -9,13 +9,6 @@ import de.greenrobot.dao.AbstractDaoSession;
 import de.greenrobot.dao.identityscope.IdentityScopeType;
 import de.greenrobot.dao.internal.DaoConfig;
 
-import com.jiahan.action.Bean.Thing;
-import com.jiahan.action.Bean.Book;
-import com.jiahan.action.Bean.Doubt;
-import com.jiahan.action.Bean.Expend;
-import com.jiahan.action.Bean.Sentiment;
-import com.jiahan.action.Bean.Income;
-import com.jiahan.action.Bean.Coffer;
 
 import com.jiahan.action.Dao.ThingDao;
 import com.jiahan.action.Dao.BookDao;

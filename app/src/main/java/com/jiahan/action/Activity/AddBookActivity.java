@@ -2,6 +2,7 @@ package com.jiahan.action.Activity;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -17,11 +18,16 @@ import com.jiahan.action.Dao.Book;
 import com.jiahan.action.Dao.BookDao;
 import com.jiahan.action.Dao.DaoMaster;
 import com.jiahan.action.Dao.DaoSession;
+import com.jiahan.action.MyAplication;
 import com.jiahan.action.R;
+import com.jiahan.action.Utils.DateUtil;
+
+import java.util.Date;
+
+import it.neokree.materialnavigationdrawer.util.Utils;
 
 public class AddBookActivity extends AppCompatActivity implements View.OnClickListener {
-    private SQLiteDatabase db;
-    private DaoMaster daoMaster;
+    private MyAplication myApp;
     private DaoSession daoSession;
     private BookDao bookDao;
     private TextView tBookName,tBookAuthor,tBookIntroduction,tBookplan,tLanguage;
@@ -29,19 +35,21 @@ public class AddBookActivity extends AppCompatActivity implements View.OnClickLi
     private String addTime = null;
     private int readProgress = 0;
     private Button bSubnit;
-    private Context mContext;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mContext = AddBookActivity.this;
-      /*  DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "life-db", null);
-        db = helper.getWritableDatabase();
-        daoMaster = new DaoMaster(db);
-        daoSession = daoMaster.newSession();
-        bookDao = daoSession.getBookDao();*/
+
         setContentView(R.layout.activity_addbook);
+        initview();
+
+        myApp = (MyAplication) getApplication();
+        daoSession = myApp.getDaoSession();
+        bookDao = daoSession.getBookDao();
+
+
        /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
 /*
@@ -78,12 +86,34 @@ public class AddBookActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
 
+        switch (v.getId())
+        {
+            case R.id.book_add_button: {
+                sBookName = tBookName.getText().toString();
+                sBookAuthor = tBookAuthor.getText().toString();
+                sBookIntroduction = tBookIntroduction.getText().toString();
+                sBookplan = tBookplan.getText().toString();
+                sLanguage = tLanguage.getText().toString();
+                addTime = DateUtil.getDateString(new Date());
+                Book book = new Book();
+                book.setBookName(sBookName);
+                book.setAuthor(sBookAuthor);
+                book.setAddTime(addTime);
+                book.setLanguage(sLanguage);
+                book.setReadProgress(readProgress);
+                book.setIntroduction(sBookIntroduction);
+                book.setPlane(sBookplan);
+                bookDao.insert(book);
 
-        sBookName = tBookName.getText().toString();
-        sBookAuthor = tBookAuthor.getText().toString();
-        sBookIntroduction = tBookIntroduction.getText().toString();
-        sBookplan = tBookplan.getText().toString();
-        sLanguage = tLanguage.getText().toString();
+                Intent intent = new Intent(AddBookActivity.this,BookActivity.class);
+                startActivity(intent);
+                break;
+            }
+
+
+
+        }
+
 
 
     }
