@@ -18,6 +18,8 @@ import com.jiahan.action.Dao.Book;
 import com.jiahan.action.Dao.BookDao;
 import com.jiahan.action.Dao.DaoMaster;
 import com.jiahan.action.Dao.DaoSession;
+import com.jiahan.action.Dao.Thing;
+import com.jiahan.action.Dao.ThingDao;
 import com.jiahan.action.MyAplication;
 import com.jiahan.action.R;
 import com.jiahan.action.Utils.DateUtil;
@@ -29,7 +31,7 @@ import it.neokree.materialnavigationdrawer.util.Utils;
 public class AddBookActivity extends AppCompatActivity implements View.OnClickListener {
     private MyAplication myApp;
     private DaoSession daoSession;
-    private BookDao bookDao;
+    private ThingDao thingdo;
     private TextView tBookName,tBookAuthor,tBookIntroduction,tBookplan,tLanguage;
     private String sBookName = null,sBookAuthor = null,sBookIntroduction = null,sBookplan = null,sLanguage = null;
     private String addTime = null;
@@ -47,7 +49,7 @@ public class AddBookActivity extends AppCompatActivity implements View.OnClickLi
 
         myApp = (MyAplication) getApplication();
         daoSession = myApp.getDaoSession();
-        bookDao = daoSession.getBookDao();
+        thingdo = daoSession.getThingDao();
 
 
        /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -95,15 +97,12 @@ public class AddBookActivity extends AppCompatActivity implements View.OnClickLi
                 sBookplan = tBookplan.getText().toString();
                 sLanguage = tLanguage.getText().toString();
                 addTime = DateUtil.getDateString(new Date());
-                Book book = new Book();
-                book.setBookName(sBookName);
-                book.setAuthor(sBookAuthor);
-                book.setAddTime(addTime);
-                book.setLanguage(sLanguage);
-                book.setReadProgress(readProgress);
-                book.setIntroduction(sBookIntroduction);
-                book.setPlane(sBookplan);
-                bookDao.insert(book);
+                long  a = 10000;
+                Thing book = new Thing(null,null,null,null,null,null,null,null,null,null);
+                book.setId(a);
+                book.setName(sBookName);
+
+                thingdo.insert(book);
 
                 Intent intent = new Intent(AddBookActivity.this,BookActivity.class);
                 startActivity(intent);
