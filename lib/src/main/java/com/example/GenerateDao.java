@@ -10,7 +10,9 @@ import de.greenrobot.daogenerator.Schema;
 public class GenerateDao {
     public static void main(String arg[])throws Exception
     {
-        Schema schema = new Schema(2, "com.jiahan.action.Dao");
+        Schema schema = new Schema(2, "com.jiahan.action.Bean");
+
+
         addThings(schema);
         addBook(schema);
         addDoubt(schema);
@@ -51,6 +53,7 @@ public class GenerateDao {
         Entity book = schema.addEntity("Book");
         book.setTableName("BOOK");
         book.addIdProperty();
+        book.addStringProperty("StringURL");
         book.addStringProperty("bookName").notNull();
         book.addStringProperty("author");
         book.addStringProperty("language");
