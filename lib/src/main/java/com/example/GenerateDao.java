@@ -10,7 +10,7 @@ import de.greenrobot.daogenerator.Schema;
 public class GenerateDao {
     public static void main(String arg[])throws Exception
     {
-        Schema schema = new Schema(2, "com.jiahan.action.Bean");
+        Schema schema = new Schema(2, "com.jiahan.action.Dao");
 
 
         addThings(schema);
@@ -20,7 +20,7 @@ public class GenerateDao {
         addSentiment(schema);
         addIncome(schema);
         addCoffer(schema);
-        new DaoGenerator().generateAll(schema, "F://AndroidStdio");
+        new DaoGenerator().generateAll(schema, "F://");
     }
 
 
@@ -34,8 +34,8 @@ public class GenerateDao {
         thing.addIdProperty();
 
         thing.addStringProperty("name").notNull();      //
-        thing.addStringProperty("type");
-        thing.addStringProperty("time");
+        //thing.addStringProperty("type");
+        thing.addStringProperty("timeline");
         thing.addStringProperty("place");
         thing.addStringProperty("rank");
         thing.addStringProperty("notification");
@@ -53,8 +53,8 @@ public class GenerateDao {
         Entity book = schema.addEntity("Book");
         book.setTableName("BOOK");
         book.addIdProperty();
-        book.addStringProperty("StringURL");
         book.addStringProperty("bookName").notNull();
+        book.addStringProperty("StringURL");
         book.addStringProperty("author");
         book.addStringProperty("language");
         book.addStringProperty("introduction");
@@ -64,6 +64,7 @@ public class GenerateDao {
         book.addIntProperty("readProgress");
         book.addIntProperty("tag");
         book.addStringProperty("finish");
+        book.addStringProperty("timeline");
     }
 
     private static void addDoubt(Schema schema)

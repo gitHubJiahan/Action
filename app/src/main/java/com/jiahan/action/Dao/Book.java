@@ -7,18 +7,18 @@ package com.jiahan.action.Dao;
 public class Book {
 
     private Long id;
-    private String StringURL;
     /** Not-null value. */
     private String bookName;
+    private String StringURL;
     private String author;
     private String language;
-    private String introduction;         // 简介
-    private String addTime;             // 添加时间
-    private Integer type;               // 图书类型
-    private String plane;             // 阅读计划  耗时
-    private Integer readProgress;   // 阅读进度
-    private Integer tag;          // 阅读状态标识
-    private String finish;       // 结束时间
+    private String introduction;
+    private String addTime;
+    private Integer type;
+    private String plane;
+    private Integer readProgress;
+    private Integer tag;
+    private String finish;
 
     public Book() {
     }
@@ -27,10 +27,10 @@ public class Book {
         this.id = id;
     }
 
-    public Book(Long id, String StringURL, String bookName, String author, String language, String introduction, String addTime, Integer type, String plane, Integer readProgress, Integer tag, String finish) {
+    public Book(Long id, String bookName, String StringURL, String author, String language, String introduction, String addTime, Integer type, String plane, Integer readProgress, Integer tag, String finish) {
         this.id = id;
-        this.StringURL = StringURL;
         this.bookName = bookName;
+        this.StringURL = StringURL;
         this.author = author;
         this.language = language;
         this.introduction = introduction;
@@ -50,14 +50,6 @@ public class Book {
         this.id = id;
     }
 
-    public String getStringURL() {
-        return StringURL;
-    }
-
-    public void setStringURL(String StringURL) {
-        this.StringURL = StringURL;
-    }
-
     /** Not-null value. */
     public String getBookName() {
         return bookName;
@@ -66,6 +58,14 @@ public class Book {
     /** Not-null value; ensure this value is available before it is saved to the database. */
     public void setBookName(String bookName) {
         this.bookName = bookName;
+    }
+
+    public String getStringURL() {
+        return StringURL;
+    }
+
+    public void setStringURL(String StringURL) {
+        this.StringURL = StringURL;
     }
 
     public String getAuthor() {

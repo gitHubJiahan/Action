@@ -1,37 +1,26 @@
 package com.jiahan.action.Activity;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.jiahan.action.Dao.Book;
-
 import com.jiahan.action.Dao.BookDao;
-import com.jiahan.action.Dao.DaoMaster;
 import com.jiahan.action.Dao.DaoSession;
-import com.jiahan.action.Dao.Thing;
-import com.jiahan.action.Dao.ThingDao;
 import com.jiahan.action.MyAplication;
 import com.jiahan.action.R;
 import com.jiahan.action.Utils.DateUtil;
 
 import java.util.Date;
 
-import it.neokree.materialnavigationdrawer.util.Utils;
-
 public class AddBookActivity extends AppCompatActivity implements View.OnClickListener {
     private MyAplication myApp;
-    private DaoSession daoSession;
-    private ThingDao thingdo;
+   // private DaoSession daoSession;
+    //private BookDao bookDao;
     private TextView tBookName,tBookAuthor,tBookIntroduction,tBookplan,tLanguage;
     private String sBookName = null,sBookAuthor = null,sBookIntroduction = null,sBookplan = null,sLanguage = null;
     private String addTime = null;
@@ -48,8 +37,8 @@ public class AddBookActivity extends AppCompatActivity implements View.OnClickLi
         initview();
 
         myApp = (MyAplication) getApplication();
-        daoSession = myApp.getDaoSession();
-        thingdo = daoSession.getThingDao();
+       // daoSession = myApp.getDaoSession();
+        //bookDao = daoSession.getBookDao();
 
 
        /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -97,15 +86,21 @@ public class AddBookActivity extends AppCompatActivity implements View.OnClickLi
                 sBookplan = tBookplan.getText().toString();
                 sLanguage = tLanguage.getText().toString();
                 addTime = DateUtil.getDateString(new Date());
-                long  a = 10000;
-                Thing book = new Thing(null,null,null,null,null,null,null,null,null,null);
-                book.setId(a);
-                book.setName(sBookName);
 
-                thingdo.insert(book);
-
-                Intent intent = new Intent(AddBookActivity.this,BookActivity.class);
+            if( validate()) {
+                Book book = new Book(null, null, null, null, null, null, null, null, null, null, null, null);
+                //
+                book.setBookName(sBookName);
+                book.setAuthor(sBookAuthor);
+                book.setIntroduction(sBookIntroduction);
+                book.setPlane(sBookplan);
+                book.setLanguage(sLanguage);
+                book.setReadProgress(readProgress);
+                book.setAddTime(addTime);
+                myApp.getDaoSession().getBookDao().insert(book);
+                Intent intent = new Intent(AddBookActivity.this, BookActivity.class);
                 startActivity(intent);
+            }
                 break;
             }
 
