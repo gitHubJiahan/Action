@@ -16,8 +16,9 @@ import android.view.MenuItem;
 
 import com.jiahan.action.Activity.AddBookActivity;
 import com.jiahan.action.Activity.AddThingActivity;
+import com.jiahan.action.Activity.BookActivity;
 import com.jiahan.action.Activity.LoginActivity;
-
+import com.jiahan.action.Activity.TaskActivity;
 
 
 public class MainActivity extends AppCompatActivity
@@ -90,10 +91,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.book_name) {
-            // Handle the camera action
+            Intent intent = new Intent(MainActivity.this, BookActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_tasks) {
-
-
+            Intent intent = new Intent(MainActivity.this, TaskActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_balance) {
             Intent intent = new Intent(MainActivity.this, AddBookActivity.class);
             startActivity(intent);
@@ -101,9 +103,11 @@ public class MainActivity extends AppCompatActivity
           Intent intent  = new Intent(MainActivity.this, AddThingActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_share) {
-
+            Intent intent = new Intent(MainActivity.this, BookActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_send) {
-
+            Intent intent = new Intent(MainActivity.this, BookActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

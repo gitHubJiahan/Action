@@ -1,5 +1,6 @@
 package com.jiahan.action.Activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.jiahan.action.Adapter.BookAdapter;
+import com.jiahan.action.Adapter.RecyclerItemClickListener;
 import com.jiahan.action.Dao.Book;
 import com.jiahan.action.Dao.BookDao;
 import com.jiahan.action.Dao.DaoSession;
@@ -31,12 +33,14 @@ public class BookActivity extends AppCompatActivity {
     private RecyclerView mRecycleview;
     private BookAdapter myAdapter;
     private List<Book> list;
+    private Context mContext;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
+        mContext = BookActivity.this;
 
         myApp = (MyAplication) getApplication();
       /*  daoSession = myApp.getDaoSession();
@@ -47,6 +51,15 @@ public class BookActivity extends AppCompatActivity {
         myAdapter = new BookAdapter(list);
         mRecycleview.setAdapter(myAdapter);
         mRecycleview.setItemAnimator(new DefaultItemAnimator());
+        mRecycleview.addOnItemTouchListener(new RecyclerItemClickListener(mContext, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Book book = list.get(position);
+                Intent intent = new Intent(mContext,BookdetailsActivity.class);
+                intent.putExtra("book",book);
+                startActivity(intent);
+            }
+        }));
 
 
 
