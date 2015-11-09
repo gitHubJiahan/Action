@@ -3,9 +3,11 @@ package com.jiahan.action.Adapter;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 
 import com.jiahan.action.Dao.Book;
 import com.jiahan.action.R;
@@ -13,6 +15,8 @@ import com.jiahan.action.databinding.BooksItemBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import it.neokree.materialnavigationdrawer.util.Utils;
 
 /**
  * Created by Administrator on 2015/10/22 0022.
@@ -23,6 +27,14 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
     private final List<Book> mData ;
 
+
+
+
+    private static final int ANIMATED_ITEMS_COUNT = 4;
+
+    private boolean animateItems = false;
+    private int lastAnimatedPosition = -1;
+
     public static BookAdapter newInstance()
     {
           List<Book> books = new ArrayList<Book>();
@@ -31,6 +43,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
     public BookAdapter(List<Book> mData) {
         this.mData = mData;
+
     }
 
     @Override
@@ -61,7 +74,25 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
     }
 
-    public static class BookViewHolder extends RecyclerView.ViewHolder
+/*
+    private void runEnterAnimation(View view, int position) {
+        if (!animateItems || position >= ANIMATED_ITEMS_COUNT - 1) {
+            return;
+        }
+
+        if (position > lastAnimatedPosition) {
+            lastAnimatedPosition = position;
+            view.setTranslationY(Utils.getScreenHeight(getActivity()));
+            view.animate()
+                    .translationY(0)
+                    .setStartDelay(100 * position)
+                    .setInterpolator(new DecelerateInterpolator(3.f))
+                    .setDuration(700)
+                    .start();
+        }
+    }*/
+
+    public class BookViewHolder extends RecyclerView.ViewHolder
     {
 
       private BooksItemBinding binding;
@@ -73,6 +104,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         {
             binding.setBook(book);
         }
+
 
     }
 }
