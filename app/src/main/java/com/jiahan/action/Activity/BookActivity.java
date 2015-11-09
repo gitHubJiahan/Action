@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.jiahan.action.Adapter.BookAdapter;
 import com.jiahan.action.Dao.Book;
 import com.jiahan.action.Dao.BookDao;
 import com.jiahan.action.Dao.DaoSession;
@@ -18,11 +20,13 @@ import java.util.List;
 
 public class BookActivity extends AppCompatActivity {
 
+    /*  private DaoSession daoSession;
+  private BookDao bookDao;*/
     private MyAplication myApp;
-    private DaoSession daoSession;
-    private BookDao bookDao;
+    private RecyclerView mRecycleview;
+    private BookAdapter myAdapter;
 
-    private TextView textView;
+
     private List<Book> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,22 +34,12 @@ public class BookActivity extends AppCompatActivity {
         setContentView(R.layout.activity_book);
 
         myApp = (MyAplication) getApplication();
-        daoSession = myApp.getDaoSession();
-        bookDao = daoSession.getBookDao();
+      /*  daoSession = myApp.getDaoSession();
+        bookDao = daoSession.getBookDao();*/
+        mRecycleview = (RecyclerView) findViewById(R.id.recyclerview_book);
+        list = myApp.getDaoSession().getBookDao().loadAll();
 
-        list = bookDao.loadAll();
 
-        textView = (TextView) findViewById(R.id.textView2);
-
-        StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0;i<list.size();i++)
-        {
-            Book book = list.get(i);
-
-            stringBuilder.append(book.getBookName()+","+book.getId());
-        }
-
-        textView.setText(stringBuilder);
 
 
 
