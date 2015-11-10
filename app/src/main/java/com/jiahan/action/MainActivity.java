@@ -15,7 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.jiahan.action.Activity.AddBookActivity;
-import com.jiahan.action.Activity.AddThingActivity;
+
+import com.jiahan.action.Activity.AddTaskActivity;
 import com.jiahan.action.Activity.BookActivity;
 import com.jiahan.action.Activity.LoginActivity;
 import com.jiahan.action.Activity.TaskActivity;
@@ -100,7 +101,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, AddBookActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_friends) {
-          Intent intent  = new Intent(MainActivity.this, AddThingActivity.class);
+          Intent intent  = new Intent(MainActivity.this, AddTaskActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_share) {
             Intent intent = new Intent(MainActivity.this, BookActivity.class);
