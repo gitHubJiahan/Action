@@ -56,7 +56,7 @@ public class BookActivity extends AppCompatActivity {
             public void onItemClick(View view, int position) {
                 Book book = list.get(position);
                 Intent intent = new Intent(mContext,BookdetailsActivity.class);
-                intent.putExtra("book",book);
+              //  intent.putExtra("book",book);
                 startActivity(intent);
             }
         }));

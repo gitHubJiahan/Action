@@ -88,7 +88,7 @@ public class AddBookActivity extends AppCompatActivity implements View.OnClickLi
                 addTime = DateUtil.getDateString(new Date());
 
             if( validate()) {
-                Book book = new Book(null, null, null, null, null, null, null, null, null, null, null, null);
+                Book book = new Book();
                 //
                 book.setBookName(sBookName);
                 book.setAuthor(sBookAuthor);
