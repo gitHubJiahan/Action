@@ -27,7 +27,7 @@ public class DoubtDao extends AbstractDao<Doubt, Long> {
         public final static Property Question = new Property(1, String.class, "question", false, "QUESTION");
         public final static Property Answer = new Property(2, String.class, "answer", false, "ANSWER");
         public final static Property Time = new Property(3, String.class, "time", false, "TIME");
-        public final static Property Boo_id = new Property(4, Long.class, "boo_id", false, "BOO_ID");
+        public final static Property BooK_id = new Property(4, Long.class, "booK_id", false, "BOO_K_ID");
         public final static Property Summary = new Property(5, String.class, "summary", false, "SUMMARY");
     };
 
@@ -48,7 +48,7 @@ public class DoubtDao extends AbstractDao<Doubt, Long> {
                 "\"QUESTION\" TEXT," + // 1: question
                 "\"ANSWER\" TEXT," + // 2: answer
                 "\"TIME\" TEXT," + // 3: time
-                "\"BOO_ID\" INTEGER," + // 4: boo_id
+                "\"BOO_K_ID\" INTEGER," + // 4: booK_id
                 "\"SUMMARY\" TEXT);"); // 5: summary
     }
 
@@ -83,9 +83,9 @@ public class DoubtDao extends AbstractDao<Doubt, Long> {
             stmt.bindString(4, time);
         }
  
-        Long boo_id = entity.getBoo_id();
-        if (boo_id != null) {
-            stmt.bindLong(5, boo_id);
+        Long booK_id = entity.getBooK_id();
+        if (booK_id != null) {
+            stmt.bindLong(5, booK_id);
         }
  
         String summary = entity.getSummary();
@@ -108,7 +108,7 @@ public class DoubtDao extends AbstractDao<Doubt, Long> {
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // question
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // answer
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // time
-            cursor.isNull(offset + 4) ? null : cursor.getLong(offset + 4), // boo_id
+            cursor.isNull(offset + 4) ? null : cursor.getLong(offset + 4), // booK_id
             cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5) // summary
         );
         return entity;
@@ -121,7 +121,7 @@ public class DoubtDao extends AbstractDao<Doubt, Long> {
         entity.setQuestion(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setAnswer(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setTime(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
-        entity.setBoo_id(cursor.isNull(offset + 4) ? null : cursor.getLong(offset + 4));
+        entity.setBooK_id(cursor.isNull(offset + 4) ? null : cursor.getLong(offset + 4));
         entity.setSummary(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
      }
     

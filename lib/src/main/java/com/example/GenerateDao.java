@@ -20,6 +20,7 @@ public class GenerateDao {
         addSentiment(schema);
         addIncome(schema);
         addCoffer(schema);
+        addSummary(schema);
         new DaoGenerator().generateAll(schema, "F://");
     }
 
@@ -76,7 +77,7 @@ public class GenerateDao {
         doubt.addStringProperty("question");
         doubt.addStringProperty("answer");
         doubt.addStringProperty("time");
-        doubt.addLongProperty("boo_id");
+        doubt.addLongProperty("booK_id");
         doubt.addStringProperty("summary");
 
     }
@@ -121,10 +122,23 @@ public class GenerateDao {
     private static void addCoffer(Schema schema)
     {
         Entity coffer = schema.addEntity("Coffer");
-        coffer.setTableName("Coffer");
+        coffer.setTableName("COFFER");
         coffer.addDoubleProperty("money");
         coffer.addIntProperty("password");
 
+    }
+
+
+    // Summary  摘要
+
+    private static void addSummary(Schema schema)
+    {
+        Entity summary = schema.addEntity("Summary");
+        summary.setTableName("SUMMARY");
+        summary.addIdProperty();
+        summary.addDateProperty("time");
+        summary.addStringProperty("words");
+        summary.addLongProperty("book_id");
     }
 
 

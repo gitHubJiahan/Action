@@ -35,6 +35,7 @@ public class BookDao extends AbstractDao<Book, Long> {
         public final static Property ReadProgress = new Property(9, Integer.class, "readProgress", false, "READ_PROGRESS");
         public final static Property Tag = new Property(10, Integer.class, "tag", false, "TAG");
         public final static Property Finish = new Property(11, String.class, "finish", false, "FINISH");
+        public final static Property Timeline = new Property(12, String.class, "timeline", false, "TIMELINE");
     };
 
 
@@ -61,7 +62,8 @@ public class BookDao extends AbstractDao<Book, Long> {
                 "\"PLANE\" TEXT," + // 8: plane
                 "\"READ_PROGRESS\" INTEGER," + // 9: readProgress
                 "\"TAG\" INTEGER," + // 10: tag
-                "\"FINISH\" TEXT);"); // 11: finish
+                "\"FINISH\" TEXT," + // 11: finish
+                "\"TIMELINE\" TEXT);"); // 12: timeline
     }
 
     /** Drops the underlying database table. */
@@ -130,6 +132,11 @@ public class BookDao extends AbstractDao<Book, Long> {
         if (finish != null) {
             stmt.bindString(12, finish);
         }
+ 
+        String timeline = entity.getTimeline();
+        if (timeline != null) {
+            stmt.bindString(13, timeline);
+        }
     }
 
     /** @inheritdoc */
@@ -153,7 +160,8 @@ public class BookDao extends AbstractDao<Book, Long> {
             cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // plane
             cursor.isNull(offset + 9) ? null : cursor.getInt(offset + 9), // readProgress
             cursor.isNull(offset + 10) ? null : cursor.getInt(offset + 10), // tag
-            cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11) // finish
+            cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11), // finish
+            cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12) // timeline
         );
         return entity;
     }
@@ -173,6 +181,7 @@ public class BookDao extends AbstractDao<Book, Long> {
         entity.setReadProgress(cursor.isNull(offset + 9) ? null : cursor.getInt(offset + 9));
         entity.setTag(cursor.isNull(offset + 10) ? null : cursor.getInt(offset + 10));
         entity.setFinish(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
+        entity.setTimeline(cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12));
      }
     
     /** @inheritdoc */

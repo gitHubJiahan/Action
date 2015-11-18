@@ -25,14 +25,13 @@ public class ThingDao extends AbstractDao<Thing, Long> {
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Name = new Property(1, String.class, "name", false, "NAME");
-        public final static Property Type = new Property(2, String.class, "type", false, "TYPE");
-        public final static Property Time = new Property(3, String.class, "time", false, "TIME");
-        public final static Property Place = new Property(4, String.class, "place", false, "PLACE");
-        public final static Property Rank = new Property(5, String.class, "rank", false, "RANK");
-        public final static Property Notification = new Property(6, String.class, "notification", false, "NOTIFICATION");
-        public final static Property Tag = new Property(7, Integer.class, "tag", false, "TAG");
-        public final static Property Summary = new Property(8, String.class, "summary", false, "SUMMARY");
-        public final static Property Plan = new Property(9, String.class, "plan", false, "PLAN");
+        public final static Property Timeline = new Property(2, String.class, "timeline", false, "TIMELINE");
+        public final static Property Place = new Property(3, String.class, "place", false, "PLACE");
+        public final static Property Rank = new Property(4, String.class, "rank", false, "RANK");
+        public final static Property Notification = new Property(5, String.class, "notification", false, "NOTIFICATION");
+        public final static Property Tag = new Property(6, Integer.class, "tag", false, "TAG");
+        public final static Property Summary = new Property(7, String.class, "summary", false, "SUMMARY");
+        public final static Property Plan = new Property(8, String.class, "plan", false, "PLAN");
     };
 
 
@@ -50,14 +49,13 @@ public class ThingDao extends AbstractDao<Thing, Long> {
         db.execSQL("CREATE TABLE " + constraint + "\"THING\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY ," + // 0: id
                 "\"NAME\" TEXT NOT NULL ," + // 1: name
-                "\"TYPE\" TEXT," + // 2: type
-                "\"TIME\" TEXT," + // 3: time
-                "\"PLACE\" TEXT," + // 4: place
-                "\"RANK\" TEXT," + // 5: rank
-                "\"NOTIFICATION\" TEXT," + // 6: notification
-                "\"TAG\" INTEGER," + // 7: tag
-                "\"SUMMARY\" TEXT," + // 8: summary
-                "\"PLAN\" TEXT);"); // 9: plan
+                "\"TIMELINE\" TEXT," + // 2: timeline
+                "\"PLACE\" TEXT," + // 3: place
+                "\"RANK\" TEXT," + // 4: rank
+                "\"NOTIFICATION\" TEXT," + // 5: notification
+                "\"TAG\" INTEGER," + // 6: tag
+                "\"SUMMARY\" TEXT," + // 7: summary
+                "\"PLAN\" TEXT);"); // 8: plan
     }
 
     /** Drops the underlying database table. */
@@ -77,44 +75,39 @@ public class ThingDao extends AbstractDao<Thing, Long> {
         }
         stmt.bindString(2, entity.getName());
  
-        String type = entity.getType();
-        if (type != null) {
-            stmt.bindString(3, type);
-        }
- 
-        String time = entity.getTime();
-        if (time != null) {
-            stmt.bindString(4, time);
+        String timeline = entity.getTimeline();
+        if (timeline != null) {
+            stmt.bindString(3, timeline);
         }
  
         String place = entity.getPlace();
         if (place != null) {
-            stmt.bindString(5, place);
+            stmt.bindString(4, place);
         }
  
         String rank = entity.getRank();
         if (rank != null) {
-            stmt.bindString(6, rank);
+            stmt.bindString(5, rank);
         }
  
         String notification = entity.getNotification();
         if (notification != null) {
-            stmt.bindString(7, notification);
+            stmt.bindString(6, notification);
         }
  
         Integer tag = entity.getTag();
         if (tag != null) {
-            stmt.bindLong(8, tag);
+            stmt.bindLong(7, tag);
         }
  
         String summary = entity.getSummary();
         if (summary != null) {
-            stmt.bindString(9, summary);
+            stmt.bindString(8, summary);
         }
  
         String plan = entity.getPlan();
         if (plan != null) {
-            stmt.bindString(10, plan);
+            stmt.bindString(9, plan);
         }
     }
 
@@ -130,14 +123,13 @@ public class ThingDao extends AbstractDao<Thing, Long> {
         Thing entity = new Thing( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getString(offset + 1), // name
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // type
-            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // time
-            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // place
-            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // rank
-            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // notification
-            cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7), // tag
-            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // summary
-            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9) // plan
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // timeline
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // place
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // rank
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // notification
+            cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6), // tag
+            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // summary
+            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8) // plan
         );
         return entity;
     }
@@ -147,14 +139,13 @@ public class ThingDao extends AbstractDao<Thing, Long> {
     public void readEntity(Cursor cursor, Thing entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setName(cursor.getString(offset + 1));
-        entity.setType(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
-        entity.setTime(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
-        entity.setPlace(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
-        entity.setRank(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
-        entity.setNotification(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
-        entity.setTag(cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7));
-        entity.setSummary(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
-        entity.setPlan(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
+        entity.setTimeline(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setPlace(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setRank(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setNotification(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
+        entity.setTag(cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6));
+        entity.setSummary(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
+        entity.setPlan(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
      }
     
     /** @inheritdoc */
