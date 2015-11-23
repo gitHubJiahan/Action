@@ -18,7 +18,8 @@
         android:layout_height="match_parent"
         android:id="@+id/scrollView"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" >
+        android:layout_centerHorizontal="true"
+        android:fillViewport="false">
 
         <LinearLayout
             android:orientation="vertical"
